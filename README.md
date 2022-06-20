@@ -22,3 +22,19 @@ If you discover a security vulnerability within Lumen, please send an e-mail to 
 ## License
 
 The Lumen framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+# Using
+
+* Laravel Framework Lumen (8.3.4) (Laravel Components ^8.0)
+
+* Install
+    * git clone https://github.com/kekosoftware/lumen-api.git
+    * composer install
+    * configure .env file
+    * create the key
+    Just temporarily add a route like this:
+    $router->get('/key', function() {
+        return \Illuminate\Support\Str::random(32);
+    });
+    * php artisan migrate --seed
+    * php -S localhost:8000 -t public
