@@ -32,9 +32,10 @@ The Lumen framework is open-sourced software licensed under the [MIT license](ht
     * composer install
     * configure .env file
     * create the key
-    Just temporarily add a route like this:
-    $router->get('/key', function() {
-        return \Illuminate\Support\Str::random(32);
-    });
+    >     Just temporarily add a route like this:
+    >     $router->get('/key', function() {
+    >         return \Illuminate\Support\Str::random(32);
+    >     });
+    >    
     * php artisan migrate --seed
     * php -S localhost:8000 -t public
