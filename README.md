@@ -31,6 +31,7 @@ The Lumen framework is open-sourced software licensed under the [MIT license](ht
     * git clone https://github.com/kekosoftware/lumen-api.git
     * composer install
     * configure .env file
+    * php -S localhost:8000 -t public
     * create the key
     >     Just temporarily add a route like this:
     >     $router->get('/key', function() {
@@ -38,4 +39,5 @@ The Lumen framework is open-sourced software licensed under the [MIT license](ht
     >     });
     >    
     * php artisan migrate --seed
-    * php -S localhost:8000 -t public
+    * Open http://localhost:8000/players
+    
