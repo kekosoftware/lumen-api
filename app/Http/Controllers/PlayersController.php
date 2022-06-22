@@ -26,7 +26,10 @@ class PlayersController extends Controller
        
         $players = $this->player->all();
 
-        return $players;
+        return response()->json([
+            'success' => true,
+            'players' => $players
+        ]);
     }
 
     /**
@@ -37,10 +40,16 @@ class PlayersController extends Controller
         $player = $this->player->find($playerId);
 
         if (empty($player)) {
-               return "No data found.";
-        }
+            return response()->json([
+                'success' => true,
+                'players' => 'No found player'
+            ]);
+        };
        
-        return $player;
+        return response()->json([
+            'success' => true,
+            'players' => $player
+        ]);
     }
     
     /**
@@ -50,20 +59,20 @@ class PlayersController extends Controller
         
         // Validate if the input for each field is correct 
         $this->validate($request, [
-            'name' => 'required|string',
-            'age' => 'required|integer',
+            'name'        => 'required|string',
+            'age'         => 'required|integer',
             'nationality' => 'required|string',
-            'club' => 'required|string',
-            'gender' => 'required|string',
+            'club'        => 'required|string',
+            'gender'      => 'required|string',
            ]);
 
         // Create the player
         $player = $this->player->create([
-            'name' => $request->input('name'),
-            'age' =>  $request->input('age'),
+            'name'        => $request->input('name'),
+            'age'         =>  $request->input('age'),
             'nationality' =>  $request->input('nationality'),
-            'club' =>  $request->input('club'),
-            'gender' =>  $request->input('gender'),
+            'club'        =>  $request->input('club'),
+            'gender'      =>  $request->input('gender'),
         ]);
 
         return $player;
@@ -88,7 +97,10 @@ class PlayersController extends Controller
 
         // Return error if not found
         if (empty($player)) {
-            return "No data found.";
+            return response()->json([
+                'success' => true,
+                'players' => 'No found player'
+            ]);
         }
 
         // Update the player
